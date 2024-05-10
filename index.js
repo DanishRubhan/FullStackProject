@@ -5,9 +5,12 @@ const cookieSession=require('cookie-session');
 const passport=require('passport');
 const authroutes=require('./routes/authRoutes');
 const billingRoutes=require('./routes/billingRoutes');
-const bodyParser=require('body-parser');
 require('./models/User');
 require('./services/passport');
+require('./models/Survey');
+const surveyRoutes=require('./routes/surveyRoutes');
+const bodyParser=require('body-parser');
+
 
 
 mongoose.connect(keys.mongoURI);
@@ -28,6 +31,8 @@ app.use(passport.session());
 authroutes(app);
 
 billingRoutes(app);
+
+surveyRoutes(app);
 
 if(process.env.NODE_ENV==='production') {
 

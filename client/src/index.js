@@ -8,6 +8,11 @@ import {createStore,applyMiddleware} from 'redux';
 import App from './components/App';
 import reducers from './reducers';
 
+//testing prupose
+import axios from 'axios';
+window.axios=axios;
+ 
+
 const store=createStore(reducers, {}, applyMiddleware(thunk));
 
 ReactDOM.render(
